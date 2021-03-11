@@ -37,7 +37,7 @@ public class District {
 
     }
     public String toString () {
-        return "Division- " + title + "; City- " + city + "; District ID- " + districtID;
+        return "Division- " + title + "; City- " + city + "; District ID- " + districtID + officersInTheDistrict;
     }
 
     public String getTitle() {

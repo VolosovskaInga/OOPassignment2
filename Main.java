@@ -28,15 +28,23 @@ public class Main {
 
         System.out.println("Information about first district: " + first
                 + "\nInformation about second district " + second);
+        second.removeOfficer(fourthOfficer);
+        System.out.println();
+        System.out.println("Updated second district: " + second);
+        System.out.println();
+        System.out.println("Average level of first district is: " + first.calculateAvgLevelInDistrict());
+        System.out.println("Average level of second district is: " + second.calculateAvgLevelInDistrict());
+
 
         //System.out.println(first.toString());
         //System.out.println(second.toString());
+        System.out.println();
         ArrayList<District> allDistricts = new ArrayList<>();
         allDistricts.add(first);
         allDistricts.add(second);
 
         System.out.println(allDistricts);
-        
+
 
 
 
