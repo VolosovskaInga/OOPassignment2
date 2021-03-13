@@ -7,36 +7,34 @@ public class District {
     public int districtID;
     private ArrayList<Officer> officersInTheDistrict = new ArrayList<>();
 
-    public District(String title, String city, int districtID) {
+    public District(String title, String city, int districtID, Officer[] officers) {
         this.title = title;
         this.city = city;
         this.districtID = districtID;
-        //officersInTheDistrict = new ArrayList<>(officers);//, ArrayList<Officer> officers
     }
-    public boolean addNewOfficer(Officer officer)
-    {
-        if(officer!=null) {
+
+    public boolean addNewOfficer(Officer officer) {
+        if (officer != null) {
             officersInTheDistrict.add(officer);
             return true;
         }
         return false;
     }
+
     public boolean removeOfficer(Officer officer) {
         officersInTheDistrict.remove(officer);
         return true;
     }
+
     public float calculateAvgLevelInDistrict() {
         float total = 0;
         for (Officer officer : officersInTheDistrict) {
             total += officer.calculatedLevel();
         }
-        return total/officersInTheDistrict.size();
+        return total / officersInTheDistrict.size();
     }
 
-    public District(String investigation, String los_angeles, int i, Officer[] officers) {
-
-    }
-    public String toString () {
+    public String toString() {
         return "Division- " + title + "; City- " + city + "; District ID- " + districtID + officersInTheDistrict;
     }
 
@@ -63,11 +61,9 @@ public class District {
     public void setDistrictID(int districtID) {
         this.districtID = districtID;
     }
-
-   
-
-
-    
+    public ArrayList<Officer> getOfficersInTheDistrict() {
+        return officersInTheDistrict;
+    }
 
 
 }

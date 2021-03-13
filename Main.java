@@ -14,8 +14,6 @@ public class Main {
         District first = new District("Crime", "New York", 3, new Officer[0]);
         District second = new District("Investigation", "Los Angeles", 55, new Officer[0]);
 
-        //System.out.println(firstOfficer);
-        //System.out.println(first);
 
         first.addNewOfficer(firstOfficer);
         first.addNewOfficer(secondOfficer);
@@ -36,20 +34,37 @@ public class Main {
         System.out.println("Average level of second district is: " + second.calculateAvgLevelInDistrict());
 
 
-        //System.out.println(first.toString());
-        //System.out.println(second.toString());
         System.out.println();
         ArrayList<District> allDistricts = new ArrayList<>();
         allDistricts.add(first);
         allDistricts.add(second);
 
+        System.out.println("Information about both districts: ");
         System.out.println(allDistricts);
 
+        System.out.println("Average level of both district is: " + (first.calculateAvgLevelInDistrict()
+                + second.calculateAvgLevelInDistrict() / 2));
 
+        int officersTogether = 0;
+        for (District district : allDistricts) {
+            officersTogether = district.getOfficersInTheDistrict().size() + officersTogether;
+        }
+        System.out.println("Count of officers in both districts are: " + officersTogether);
 
-
-
+        for (District district : allDistricts) {
+            if (first.calculateAvgLevelInDistrict() > second.calculateAvgLevelInDistrict()) {
+                System.out.println("The best district is the First district!");
+                break;
+            } else if (first.calculateAvgLevelInDistrict() < second.calculateAvgLevelInDistrict()) {
+                System.out.println("The best district is the Second district!");
+                break;
+            } else if (first.calculateAvgLevelInDistrict() == second.calculateAvgLevelInDistrict()) {
+                System.out.println("Both districts are equal!");
+                break;
+            }
+        }
+        allDistricts.remove(0);
+        System.out.println(allDistricts);
+        //After removing first district all officers are removed as well.
     }
-
-
 }
